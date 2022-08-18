@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::get('/', 'Authcontroller@index')->name('index');
+
+Route::post('/login', 'AuthController@login')->name('login');
+
+Route::group(['middleware' => ['auth']], function() {
+    
+    Route::get('/atendimentos', 'Atendimentos@atendimentos')->name('atendimentos');
+
 });
 
-Route::post('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout')->name('logout');
