@@ -18,6 +18,7 @@ Route::post('/login', 'AuthController@login')->name('login');
 Route::group(['middleware' => ['auth']], function() {
     
     Route::get('/atendimentos', 'Atendimentos@atendimentos')->name('atendimentos');
+    Route::post('/consulta', 'Atendimentos@consulta')->name('consulta');
 
 });
 

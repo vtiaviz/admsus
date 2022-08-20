@@ -2,7 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    @include('includes.head')  
+    @include('includes.head') 
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -48,46 +50,46 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Form Start -->
-                    <form class="mb-4 mt-3">
+                    <form class="mb-4 mt-3" name="consulta" action="{{ route('consulta') }}" method="post" autocomplete="off">
                         <div class="row mb-3 mt-3">
-                            <div class="col-sm-4">
-                                <div class="input-group ">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Unidade de Saúde</label>
-                                    </div>
-                                    <select class="custom-select" id="inputGroupSelect01">
-                                        <option selected>Todas</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">        
-                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                        <label class="input-group-text" for="inputGroupSelect01">Data Inicial</label>
-                                      <input  type="date" class="form-control border border-muted px-3" placeholder="Data Inicial">
-                                      <div class="input-group-addon" >
-                                        <span class="glyphicon glyphicon-th"></span>
-                                      </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Unidade de Saúde</label>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01" name="ubs">
+                                            <option selected>Todas</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">        
-                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                        <label class="input-group-text" for="inputGroupSelect01">Data Final</label>
-                                      <input  type="date" class="form-control border border-muted px-3" placeholder="Data Inicial">
-                                      <div class="input-group-addon" >
-                                        <span class="glyphicon glyphicon-th"></span>
-                                      </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">        
+                                        <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                            <label class="input-group-text" for="inputGroupSelect02">Data Inicial</label>
+                                            <input name="dtIni"  class="form-control border border-muted px-3" placeholder="">
+                                            <div class="input-group-addon" >
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">        
+                                        <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                            <label class="input-group-text" for="inputGroupSelect03">Data Final</label>
+                                            <input name="dtFim" class="form-control border border-muted px-3" placeholder="">
+                                            <div class="input-group-addon" >
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="col-sm-2">
                                 <div class="input-group">
-                                    <button type="button" class="btn btn-dark rounded" style="width: 100%;">Buscar</button>
+                                    <button class="btn btn-dark rounded" style="width: 100%;">Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -192,6 +194,7 @@
 <script>
  $('.input-group.date').datepicker({format: "dd/mm/yyyy"});
 </script>
+<script src="assets/js/atendimentos.js"></script>
 
 
 </body>
