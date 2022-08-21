@@ -2,7 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    @include('includes.head')     
+    @include('includes.head') 
+    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -68,9 +70,9 @@
                             <div class="col-sm-4">
                                 <div class="input-group ">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Unidade de Saúde</label>
+                                        <label class="input-group-text" for="ubs">Unidade de Saúde</label>
                                     </div>
-                                    <select class="custom-select" id="inputGroupSelect01">
+                                    <select name="ubs" class="custom-select" id="ubs">
                                         <option selected>Todas</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -81,9 +83,9 @@
                             <div class="col-sm-3">
                                 <div class="input-group ">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Equipe</label>
+                                        <label class="input-group-text" for="equipe">Equipe</label>
                                     </div>
-                                    <select class="custom-select" id="inputGroupSelect01">
+                                    <select name="equipe" class="custom-select" id="equipe">
                                         <option selected>Todas equipes</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -94,9 +96,9 @@
                             <div class="col-sm-3">
                                 <div class="input-group ">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Micro Área</label>
+                                        <label class="input-group-text" for="name="microarea"">Micro Área</label>
                                     </div>
-                                    <select class="custom-select" id="inputGroupSelect01">
+                                    <select name="microarea" class="custom-select" id="name="microarea"">
                                         <option selected>Todas</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -370,6 +372,7 @@ $(document).ready(function () {
     });
 });
 </script>
+<script src="assets/js/prenatal.js"></script>
 
 </body>
 

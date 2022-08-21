@@ -5,6 +5,23 @@
     @include('includes.head') 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+<style>
+    .loader {
+        animation: is-rotating 1s infinite;
+        border: 6px solid #e5e5e5;
+        border-radius: 50%;
+        border-top-color: #51d4db;
+        height: 50px;
+        width: 50px;
+    }
+
+    @keyframes is-rotating {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+</style>
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -50,7 +67,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Form Start -->
-                    <form class="mb-4 mt-3" name="consulta" action="{{ route('consulta') }}" method="post" autocomplete="off">
+                    <form class="mb-4 mt-3" name="consulta" action="#" method="post" autocomplete="off">
                         <div class="row mb-3 mt-3">
                                 <div class="col-sm-4">
                                     <div class="input-group ">
@@ -101,9 +118,11 @@
                                 <div class="card-header">Consultas Médicas</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-user-doctor"></i></div>
-                                    <h1 class="card-title text-white px-3">57</h1>
+                                    <h1 class="card-title text-white px-3 medico">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -111,9 +130,11 @@
                                 <div class="card-header">Consultas Enfermagem</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-user-nurse"></i></div>
-                                    <h1 class="card-title text-white px-3">45</h1>
+                                    <h1 class="card-title text-white px-3 enfermagem">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -121,9 +142,11 @@
                                 <div class="card-header">Consultas Odontologica</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-tooth"></i></div>
-                                    <h1 class="card-title text-white px-3">39</h1>
+                                    <h1 class="card-title text-white px-3 odonto">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -131,9 +154,11 @@
                                 <div class="card-header">Outros Prof. Nivel Superior</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-star-of-life"></i></div>
-                                    <h1 class="card-title text-white px-3">28</h1>
+                                    <h1 class="card-title text-white px-3 outrosProf">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                     </div>
@@ -143,9 +168,11 @@
                                 <div class="card-header">Escuta Inicial</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-laptop-medical"></i></div>
-                                    <h1 class="card-title text-white px-3">14</h1>
+                                    <h1 class="card-title text-white px-3 escutaInicial">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -153,9 +180,11 @@
                                 <div class="card-header">Procedimentos</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-stethoscope"></i></div>
-                                    <h1 class="card-title text-white px-3">28</h1>
+                                    <h1 class="card-title text-white px-3 procedimentos">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -163,9 +192,11 @@
                                 <div class="card-header border-bottom">Vacinas</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-syringe"></i></div>
-                                    <h1 class="card-title px-3">35</h1>
+                                    <h1 class="card-title px-3 vacinas">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer periodo"></small>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -173,9 +204,11 @@
                                 <div class="card-header">Visitas ACS</div>
                                 <div class="card-body row">
                                     <div class="h1 px-3"><i class="fa-solid fa-house-medical-circle-check"></i></div>
-                                    <h1 class="card-title text-white px-3">112</h1>
+                                    <h1 class="card-title text-white px-3 visitasACS">
+                                        <div class="loader"></div>
+                                    </h1>
                                 </div>
-                                <small class="card-footer text-white">Periodo: 22/05/2022 a 22/05/2022</small>
+                                <small class="card-footer text-white periodo"></small>
                             </div>
                         </div>
                     </div>
@@ -194,7 +227,7 @@
 <script>
  $('.input-group.date').datepicker({format: "dd/mm/yyyy"});
 </script>
-<script src="assets/js/atendimentos.js"></script>
+<script src="assets/js/consulta.js"></script>
 
 
 </body>

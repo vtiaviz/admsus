@@ -2,33 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>AdmSUS - Dashboard para eSUS</title>
-    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 11]>
-    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    	<![endif]-->
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="">
-    <meta name="author" content="Phoenixcoded" />
-    <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/dadae15646.js" crossorigin="anonymous"></script>
-
-    <!-- vendor css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- datatable css -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
-    
-    
-
+    @include('includes.head') 
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -40,88 +14,12 @@
 	<!-- [ Pre-loader ] End -->
 	<!-- [ navigation menu ] start -->
 	<nav class="pcoded-navbar menu-light ">
-		<div class="navbar-wrapper  ">
-			<div class="navbar-content scroll-div " >
-				
-				<div class="">
-					<div class="main-menu-header mb-3">
-						<img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
-						<div class="user-details mt-2">
-							<div id="more-details">Brejo Grande do Araguaia</div>
-						</div>
-                        <hr>
-					</div>
-				</div>
-				
-				<ul class="nav pcoded-inner-navbar ">
-					<li class="nav-item pcoded-menu-caption">
-					    <label>Monitoramento</label>
-					</li>
-					<li class="nav-item">
-					    <a href="atendimentos.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-house-chimney-medical" style="font-size: 130%;"></i></span><span class="pcoded-mtext">Atendimentos </span></a>
-					</li>
-					<li class="nav-item pcoded-menu-caption">
-					    <label>Previne Brasil</label>
-					</li>
-					<li class="nav-item">
-					    <a href="prenatal.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-person-pregnant" style="font-size: 160%;"></i></span><span class="pcoded-mtext">Pré-Natal</span></a>
-					</li>
-                    <li class="nav-item">
-					    <a href="saude-mulher.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-venus" style="font-size: 160%;"></i></span><span class="pcoded-mtext">Saúde da mulher</span></a>
-					</li>
-                    <li class="nav-item">
-					    <a href="saude-crianca.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-children" style="font-size: 130%;"></i></span><span class="pcoded-mtext">Saúde da criança</span></a>
-					</li>
-                    <li class="nav-item pcoded-trigger">
-					    <a href="doencas-cronicas.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-pills" style="font-size: 130%;"></i></span><span class="pcoded-mtext">Doenças crônicas</span></a>
-					</li>
-                    <li class="nav-item">
-					    <a href="resultados.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-chart-line" style="font-size: 130%;"></i></span><span class="pcoded-mtext">Previsão Resultados</span></a>
-					</li>
-
-				</ul>				
-			</div>
-		</div>
+        @include('includes.sidebar')
 	</nav>
 	<!-- [ navigation menu ] end -->
 	<!-- [ Header ] start -->
 	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">		
-        <div class="m-header">
-            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-            <a href="#!" class="b-brand">
-                <!-- ========   change your logo hear   ============ -->
-                <img src="assets/images/logo.png" alt="" class="logo">
-                <img src="assets/images/logo-icon.png" alt="" class="logo-thumb">
-            </a>
-            <a href="#!" class="mob-toggler">
-                <i class="feather icon-more-vertical"></i>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="dropdown drp-user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="feather icon-user h3"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right profile-notification">
-                            <div class="pro-head">
-                                <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>John Doe</span>
-                                <a href="auth-signin.html" class="dud-logout" title="Logout">
-                                    <i class="feather icon-log-out"></i>
-                                </a>
-                            </div>
-                            <ul class="pro-body">
-                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>			
+        @include('includes.header')			
 	</header>
 	<!-- [ Header ] end -->
 	

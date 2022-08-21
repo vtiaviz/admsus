@@ -18,7 +18,15 @@ Route::post('/login', 'AuthController@login')->name('login');
 Route::group(['middleware' => ['auth']], function() {
     
     Route::get('/atendimentos', 'Atendimentos@atendimentos')->name('atendimentos');
-    Route::post('/consulta', 'Atendimentos@consulta')->name('consulta');
+    Route::post('/atendimentos/consulta', 'Atendimentos@consulta')->name('/atendimentos/consulta');
+
+    Route::get('/prenatal', 'PrenatalController@prenatal')->name('prenatal');
+    Route::post('/prenatal/consulta', 'PrenatalController@consulta')->name('prenatal/consulta');
+
+    Route::get('/saude-mulher', 'MulheresController@saudeMulher')->name('saudeMulher');
+    Route::get('/saude-crianca', 'CriancasController@saudeCrianca')->name('saudeCrianca');
+    Route::get('/doencas-cronicas', 'CronicasController@doencasCronicas')->name('doencasCronicas');
+    Route::get('/resultados', 'ResultadosController@resultados')->name('resultados');
 
 });
 
