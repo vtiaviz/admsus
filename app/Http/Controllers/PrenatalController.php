@@ -12,13 +12,21 @@ class PrenatalController extends Controller
         return view('prenatal');
     }
 
-    public function Consulta(Request $request)
+    public function getList(Request $request)
     {
         $ubs = $request->ubs;
         $equipe = $request->equipe;
-        $microarea = $request->microarea;
+        $microarea = "'$request->microarea'";
 
-        $data['listaGestantes'] = PrenatalModel::listaGestantes($ubs, $equipe, $microarea);
+        $data['getList'] = PrenatalModel::listGestantes($ubs, $equipe, $microarea);
+        return $data;
+    }
+
+    public function getGestante(Request $request)
+    {
+        $cidadao = $request->cidadao; //523
+
+        $data['getGestante'] = PrenatalModel::getGestante($cidadao);
         return $data;
     }
 }

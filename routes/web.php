@@ -21,7 +21,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/atendimentos/consulta', 'Atendimentos@consulta')->name('/atendimentos/consulta');
 
     Route::get('/prenatal', 'PrenatalController@prenatal')->name('prenatal');
-    Route::post('/prenatal/consulta', 'PrenatalController@consulta')->name('prenatal/consulta');
+    Route::post('/prenatal/getList', 'PrenatalController@getList')->name('prenatal/getList');
+    Route::post('/prenatal/getGestante', 'PrenatalController@getGestante')->name('prenatal/getGestante');
 
     Route::get('/saude-mulher', 'MulheresController@saudeMulher')->name('saudeMulher');
     Route::get('/saude-crianca', 'CriancasController@saudeCrianca')->name('saudeCrianca');
