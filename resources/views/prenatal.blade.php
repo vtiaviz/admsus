@@ -124,11 +124,12 @@
                                     <th>#</th>
                                     <th>Nome</th>
                                     <th>CPF/CNS</th>
+                                    <th>Contato</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="resultado">
+                                <!-- <tr>
                                     <td>1</td>
                                     <td><a href="#modalGestante" data-toggle="modal">ADRIANA SILVA DE SOUSA</a></td>
                                     <td>01934249246</td>
@@ -151,7 +152,7 @@
                                     <td>BARBARA FERREIRA DE SOUZA</td>
                                     <td>07152839280</td>
                                     <td><span class="badge badge-light-success">Success</span></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -159,129 +160,131 @@
                     <!-- Table end -->
 
                     <!-- Modal tipo #01 start-->
-                    <div class="modal fade bd-table-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalGestante">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title h4" id="myLargeModalLabel">Informações da Gestante</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="col-md-12 card card-outline card-primary">
-                                        <h5 class="card-header">Nome: ALANA BRAZ MARTINS<span> | Contato: 94991605908</span><span> | Micro Área: 04</span></h5>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-12">Idade Gestacional: </label>
-                                                    <div class="col-sm-12 btn btn-primary rounded">
-                                                        <b>38</b> semanas e <b>4</b> dias
+                    <div id="modal_teste">
+                        <div class="modal fade bd-table-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalGestante">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title h4" id="myLargeModalLabel">Informações da Gestante</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-md-12 card card-outline card-primary">
+                                            <h5 class="card-header">Nome: ALANA BRAZ MARTINS<span> | Contato: 94991605908</span><span> | Micro Área: 04</span></h5>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-sm-12">Idade Gestacional: </label>
+                                                        <div class="col-sm-12 btn btn-primary rounded">
+                                                            <b>38</b> semanas e <b>4</b> dias
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="col-sm-12">Previsão para o Parto: </label>
+                                                        <div class="col-sm-12 btn btn-primary rounded">
+                                                            26/05/2022
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-12">Previsão para o Parto: </label>
-                                                    <div class="col-sm-12 btn btn-primary rounded">
-                                                        26/05/2022
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <label class="col-sm-12">Vacina dTpa Adulto:</label>
+                                                        <div class="col-sm-12 btn btn-primary rounded">
+                                                            26/05/2022
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-12">Vacina dTpa Adulto:</label>
-                                                    <div class="col-sm-12 btn btn-primary rounded">
-                                                        26/05/2022
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-12">Última Consulta Médica: </label>
-                                                    <div class="col-sm-12 btn btn-primary rounded">
-                                                        26/05/2022
+                                                    <div class="col-md-6">
+                                                        <label class="col-sm-12">Última Consulta Médica: </label>
+                                                        <div class="col-sm-12 btn btn-primary rounded">
+                                                            26/05/2022
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 card card-outline card-primary">
-                                        <div class="card-body">
-                                            <div class="accordion" id="accordiontable">
-                                                <div class="card mb-0">
-                                                    <div class="card-header" id="headingOne">
-                                                        <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="h3"><i class="fa-solid fa-stethoscope mr-2"></i></span> INDICADOR #01:</a></h5>
-                                                    </div>
-                                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordiontable">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">1ª Consulta Médica</h5>
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <label class="col-sm-12">Data da Consulta: </label>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        05/10/2021
-                                                                    </div>
-                                                                    <label class="col-sm-12 mt-3">Semana de Gestação: </label>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        9ª Semana
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <label class="col-sm-12">Total de Consultas: </label>
-                                                                    <div class="border border-primary rounded p-3 pt-3 pb-4">
-                                                                        <h1>8</h1>
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar" style="width: 100%">
-                                                                            </div>
+                                        <div class="col-md-12 card card-outline card-primary">
+                                            <div class="card-body">
+                                                <div class="accordion" id="accordiontable">
+                                                    <div class="card mb-0">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="h3"><i class="fa-solid fa-stethoscope mr-2"></i></span> INDICADOR #01:</a></h5>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordiontable">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">1ª Consulta Médica</h5>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <label class="col-sm-12">Data da Consulta: </label>
+                                                                        <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                            05/10/2021
                                                                         </div>
-                                                                        <span class="progress-description">
-                                                                            133% completo
-                                                                        </span>
+                                                                        <label class="col-sm-12 mt-3">Semana de Gestação: </label>
+                                                                        <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                            9ª Semana
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="col-sm-12">Total de Consultas: </label>
+                                                                        <div class="border border-primary rounded p-3 pt-3 pb-4">
+                                                                            <h1>8</h1>
+                                                                            <div class="progress">
+                                                                                <div class="progress-bar" style="width: 100%">
+                                                                                </div>
+                                                                            </div>
+                                                                            <span class="progress-description">
+                                                                                133% completo
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card mb-0">
-                                                    <div class="card-header" id="headingTwo">
-                                                        <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="h3"><i class="fa-solid fa-syringe mr-2"></i></span> INDICADOR #02:</a></h5>
-                                                    </div>
-                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiontable">
-                                                        <div class="card-body row">
-                                                            <div class="col-sm-6">
-                                                                <h5 class="card-title">Exame VDRL</h5>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                    Solicitado
+                                                    <div class="card mb-0">
+                                                        <div class="card-header" id="headingTwo">
+                                                            <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="h3"><i class="fa-solid fa-syringe mr-2"></i></span> INDICADOR #02:</a></h5>
+                                                        </div>
+                                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiontable">
+                                                            <div class="card-body row">
+                                                                <div class="col-sm-6">
+                                                                    <h5 class="card-title">Exame VDRL</h5>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                        Solicitado
+                                                                    </div>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
+                                                                        Avaliado
+                                                                    </div>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                        Teste Rápido
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
-                                                                    Avaliado
-                                                                </div>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                    Teste Rápido
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <h5 class="card-title">Exame HIV</h5>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                    Solicitado
-                                                                </div>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
-                                                                    Avaliado
-                                                                </div>
-                                                                <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                    Teste Rápido
+                                                                <div class="col-sm-6">
+                                                                    <h5 class="card-title">Exame HIV</h5>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                        Solicitado
+                                                                    </div>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
+                                                                        Avaliado
+                                                                    </div>
+                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
+                                                                        Teste Rápido
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card mb-0">
-                                                    <div class="card-header" id="headingThree">
-                                                        <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="h3"><i class="fa-solid fa-tooth mr-2"></i></span> INDICADOR #03:</a></h5>
-                                                    </div>
-                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordiontable">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Consulta Odontológica</h5>
-                                                            <div class="col-md-12">
-                                                                <label class="col-sm-12">Data Última Consulta: </label>
-                                                                <div class="col-sm-12 btn border border-primary rounded">
-                                                                    10/12/2021
+                                                    <div class="card mb-0">
+                                                        <div class="card-header" id="headingThree">
+                                                            <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="h3"><i class="fa-solid fa-tooth mr-2"></i></span> INDICADOR #03:</a></h5>
+                                                        </div>
+                                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordiontable">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Consulta Odontológica</h5>
+                                                                <div class="col-md-12">
+                                                                    <label class="col-sm-12">Data Última Consulta: </label>
+                                                                    <div class="col-sm-12 btn border border-primary rounded">
+                                                                        10/12/2021
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

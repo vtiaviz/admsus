@@ -34,8 +34,31 @@ function getList(ubs, equipe, microarea) {
         data:{ubs: ubs, equipe: equipe, microarea: microarea},
         dataType:'json',
         success: function (data){
+
+            console.log(data.getList)
+
+            let qtd = data.getList.length;
+
+            $('#resultado').html('');
             
-            alert('Chegou!');
+            for (var x = 0; qtd > x; x++) {
+                var doc = data.getList[x].cns != null ? data.getList[x].cns + ' (CNS)' : data.getList[x].cpf + ' (CPF)'
+                $('#resultado').append(`
+                <tr>
+                    <td>${x+1}</td>
+                    <td><a href="/prenatal/getGestante/${data.getList[x].cidadao}">${data.getList[x].no_cidadao}</a></td>
+                    <td>${doc}</td>
+                    <td>${data.getList[x].celular}</td>
+                    <td><span class="badge badge-light-success">Success</span></td>
+                </tr>`)
+              }
+
+            // <tr>
+            //     <td>1</td>
+            //     <td><a href="#modalGestante" data-toggle="modal">ADRIANA SILVA DE SOUSA</a></td>
+            //     <td>01934249246</td>
+            //     <td><span class="badge badge-light-success">Success</span></td>
+            // </tr>
 
         },
         error: function(e){

@@ -22,9 +22,9 @@ class PrenatalController extends Controller
         return $data;
     }
 
-    public function getGestante(Request $request)
+    public function getGestante($cidadao)
     {
-        $cidadao = $request->cidadao; //523
+        // $cidadao = $request->cidadao; //523
 
         $data['getGestante'] = PrenatalModel::getGestante($cidadao);
         return $data;
