@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="col-md-12 card card-outline card-primary">
-                                            <h5 class="card-header">Nome: ALANA BRAZ MARTINS<span> | Contato: 94991605908</span><span> | Micro Área: 04</span></h5>
+                                            <h5 class="card-header" id="cardHeader"></h5>
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -181,9 +181,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Previsão para o Parto: </label>
-                                                        <div class="col-sm-12 btn btn-primary rounded">
-                                                            26/05/2022
-                                                        </div>
+                                                        <div id="previsto" class="col-sm-12 btn btn-primary rounded"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
@@ -195,9 +193,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Última Consulta Médica: </label>
-                                                        <div class="col-sm-12 btn btn-primary rounded">
-                                                            26/05/2022
-                                                        </div>
+                                                        <div id="consulta_ult" class="col-sm-12 btn btn-primary rounded"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,13 +211,9 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <label class="col-sm-12">Data da Consulta: </label>
-                                                                        <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                            05/10/2021
-                                                                        </div>
+                                                                        <div id="consulta_1" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
                                                                         <label class="col-sm-12 mt-3">Semana de Gestação: </label>
-                                                                        <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                            9ª Semana
-                                                                        </div>
+                                                                        <div id="semanas" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <label class="col-sm-12">Total de Consultas: </label>
@@ -282,9 +274,7 @@
                                                                 <h5 class="card-title">Consulta Odontológica</h5>
                                                                 <div class="col-md-12">
                                                                     <label class="col-sm-12">Data Última Consulta: </label>
-                                                                    <div class="col-sm-12 btn border border-primary rounded">
-                                                                        10/12/2021
-                                                                    </div>
+                                                                    <div id="consul_odonto" class="col-sm-12 btn border border-primary rounded"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
