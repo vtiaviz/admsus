@@ -175,9 +175,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Idade Gestacional: </label>
-                                                        <div class="col-sm-12 btn btn-primary rounded">
-                                                            <b>38</b> semanas e <b>4</b> dias
-                                                        </div>
+                                                        <div id="idadeGestacional" class="col-sm-12 btn btn-primary rounded"></div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Previsão para o Parto: </label>
@@ -240,27 +238,15 @@
                                                             <div class="card-body row">
                                                                 <div class="col-sm-6">
                                                                     <h5 class="card-title">Exame VDRL</h5>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        Solicitado
-                                                                    </div>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
-                                                                        Avaliado
-                                                                    </div>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        Teste Rápido
-                                                                    </div>
+                                                                    <div id="vdrl_solicitacao" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
+                                                                    <div id="vdrl_avaliacao" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1"></div>
+                                                                    <div id="vdrl_rapido" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <h5 class="card-title">Exame HIV</h5>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        Solicitado
-                                                                    </div>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1">
-                                                                        Avaliado
-                                                                    </div>
-                                                                    <div class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded">
-                                                                        Teste Rápido
-                                                                    </div>
+                                                                    <div id="hiv_solicitacao" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
+                                                                    <div id="hiv_avaliacao" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded mt-1 mb-1"></div>
+                                                                    <div id="hiv_rapido" class="col-sm-12 btn d-inline-block mr-2 border border-primary rounded"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -274,7 +260,7 @@
                                                                 <h5 class="card-title">Consulta Odontológica</h5>
                                                                 <div class="col-md-12">
                                                                     <label class="col-sm-12">Data Última Consulta: </label>
-                                                                    <div id="consul_odonto" class="col-sm-12 btn border border-primary rounded"></div>
+                                                                    <div id="ultimo_odonto" class="col-sm-12 btn border border-primary rounded"></div>
                                                                 </div>
                                                             </div>
                                                         </div>

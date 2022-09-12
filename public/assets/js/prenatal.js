@@ -83,14 +83,64 @@ function getGestante(id) {
 
             console.log(data.getGestante)
 
-            // let qtd = data.getList.length;
+            var vdrl_avaliacao = (data.getGestante[0].vdrl_avaliacao == null) ? ['btn-danger', 'Não Avaliado'] : ['btn-success', 'Avaliado'];
+            var vdrl_rapido = (data.getGestante[0].vdrl_rapido == null) ? ['btn-danger', 'Sem Teste Rápido'] : ['btn-success', 'Teste Rápido'];
+            var vdrl_solicitacao = (data.getGestante[0].vdrl_solicitacao == null) ? ['btn-danger', 'Não Solicitado'] : ['btn-success', 'Solicitado'];
 
+            var hiv_avaliacao = (data.getGestante[0].hiv_avaliacao == null) ? ['btn-danger', 'Não Avaliado'] : ['btn-success', 'Avaliado'];
+            var hiv_rapido = (data.getGestante[0].hiv_rapido == null) ? ['btn-danger', 'Sem Teste Rápido'] : ['btn-success', 'Teste Rápido'];
+            var hiv_solicitacao = (data.getGestante[0].hiv_solicitacao == null) ? ['btn-danger', 'Não Solicitado'] : ['btn-success', 'Solicitado'];
+
+            var consulta_ult = (data.getGestante[0].consulta_ult != null) ? data.getGestante[0].consulta_ult.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
+            var consulta_1 = (data.getGestante[0].consulta_1 != null) ? data.getGestante[0].consulta_1.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
+            
+            var ultimo_odonto = (data.getGestante[0].ultimo_odonto != null) ? ['btn-primary', data.getGestante[0].ultimo_odonto.substring(0, 10).split('-').reverse().join('/') ] : ['btn-danger', 'Sem Consulta']
+            
             $('#cardHeader').html('Nome: ' + data.getGestante[0].no_cidadao + '<span> | Contato: ' +  data.getGestante[0].celular + '</span><span> | Micro Área: ' +  data.getGestante[0].micro + '</span>');
-            $('#previsto').html(data.getGestante[0].consulta_ult.substring(0, 10).split('-').reverse().join('/'))
-            $('#consulta_ult').html(data.getGestante[0].consulta_ult.substring(0, 10).split('-').reverse().join('/'))
-            $('#consulta_1').html(data.getGestante[0].consulta_1.substring(0, 10).split('-').reverse().join('/'))
-            $('#consul_odonto').html(data.getGestante[0].consul_odonto.substring(0, 10).split('-').reverse().join('/'))
+            $('#consulta_ult').html(consulta_ult)
+            $('#consulta_1').html(consulta_1)
+            $('#ultimo_odonto').addClass(ultimo_odonto[0]).html(ultimo_odonto[1])
             $('#semanas').html(data.getGestante[0].semanas + 'ª Semana')
+            $('#vdrl_avaliacao').addClass(vdrl_avaliacao[0]).html(vdrl_avaliacao[1])
+            $('#vdrl_rapido').addClass(vdrl_rapido[0]).html(vdrl_rapido[1])
+            $('#vdrl_solicitacao').addClass(vdrl_solicitacao[0]).html(vdrl_solicitacao[1])
+            $('#hiv_avaliacao').addClass(hiv_avaliacao[0]).html(hiv_avaliacao[1])
+            $('#hiv_rapido').addClass(hiv_rapido[0]).html(hiv_rapido[1])
+            $('#hiv_solicitacao').addClass(hiv_solicitacao[0]).html(hiv_solicitacao[1])
+
+            let idadeGestacional = 'Não calculado';
+            let previsto = 'Não calculado';
+
+            if (data.getGestante[0].dum != null) {
+                let dum = data.getGestante[0].dum.split('-');
+                let anoDum = dum[0] * 365;
+                let mesDum = dum[1] * 30;
+                let diaDum = dum[2] * 1;
+                let totalDum = anoDum + mesDum + diaDum
+
+                var data = new Date();
+                var diaAtual = String(data.getDate()).padStart(2, '0') * 1;
+                var mesAtual = String(data.getMonth() + 1).padStart(2, '0') * 30;
+                var anoAtual = String(data.getFullYear()).padStart(4, '0') * 365;
+                let totalAtual = anoAtual + mesAtual + diaAtual
+
+                let total = totalAtual - totalDum;
+
+                let diasPrevisao = 280 - total;
+                data.setDate(data.getDate() + diasPrevisao);
+                previsto = ((data.getDay() < 10) ? '0'+data.getDay() : data.getDay()) + '/' + data.getMonth() + '/' + data.getFullYear()
+
+                let semanas = Math.round(total/7)
+                let dias = total%7
+
+                idadeGestacional = semanas + ' Semana(s) e ' + dias + ' dia(s)';
+
+            }
+
+            $('#idadeGestacional').html(idadeGestacional)
+            $('#previsto').html(previsto)
+            
+
             // var doc = data.getList[x].cns != null ? data.getList[x].cns + ' (CNS)' : data.getList[x].cpf + ' (CPF)'
             // $('#resultado').append(`
             //     <tr>
