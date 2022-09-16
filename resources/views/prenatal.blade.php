@@ -5,6 +5,32 @@
     @include('includes.head') 
     
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <style>
+        .loader {
+            animation: is-rotating 1s infinite;
+            border: 1em solid #e5e5e5;
+            border-radius: 50%;
+            border-top-color: #51d4db;
+            height: 15em;
+            width: 15em
+        }
+
+        #content-loader { 
+            left:50%;
+            top:50%;
+            position: relative;
+            margin-left:-8em; /* -1/2 width */
+            margin-top:-8em; /* -1/2 height */
+        }
+
+        @keyframes is-rotating {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -162,8 +188,11 @@
                     <!-- Modal tipo #01 start-->
                     <div id="modal_teste">
                         <div class="modal fade bd-table-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalGestante">
+                            <div id="content-loader">
+                                <div class="loader"></div>
+                            </div>
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content" id="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title h4" id="myLargeModalLabel">Informações da Gestante</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -185,9 +214,7 @@
                                                 <div class="row mt-3">
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Vacina dTpa Adulto:</label>
-                                                        <div class="col-sm-12 btn btn-primary rounded">
-                                                            26/05/2022
-                                                        </div>
+                                                        <div id="dtpa" class="col-sm-12 btn btn-primary rounded"></div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-12">Última Consulta Médica: </label>
@@ -216,13 +243,13 @@
                                                                     <div class="col-sm-6">
                                                                         <label class="col-sm-12">Total de Consultas: </label>
                                                                         <div class="border border-primary rounded p-3 pt-3 pb-4">
-                                                                            <h1>8</h1>
+                                                                            <h1 id="total_consulta"></h1>
                                                                             <div class="progress">
                                                                                 <div class="progress-bar" style="width: 100%">
                                                                                 </div>
                                                                             </div>
                                                                             <span class="progress-description">
-                                                                                133% completo
+                                                                                100% completo
                                                                             </span>
                                                                         </div>
                                                                     </div>
