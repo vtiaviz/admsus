@@ -51,14 +51,37 @@ function getList(ubs, equipe, microarea) {
                     <td>${data.getList[x].celular}</td>
                     <td><span class="badge badge-light-success">Success</span></td>
                 </tr>`)
-              }
+            }
 
-            // <tr>
-            //     <td>1</td>
-            //     <td><a href="#modalGestante" data-toggle="modal">ADRIANA SILVA DE SOUSA</a></td>
-            //     <td>01934249246</td>
-            //     <td><span class="badge badge-light-success">Success</span></td>
-            // </tr>
+            $('#table').DataTable({
+                "oLanguage": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Exibindo _TOTAL_ registros",
+                        "sInfoEmpty": "Exibindo 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "",
+                    "sSearchPlaceholder": "Buscar",
+                    "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                },
+                'sLengthMenu': false,
+                'sSearch': false,
+                'bFilter': false
+            });
 
         },
         error: function(e){
@@ -87,7 +110,7 @@ function getGestante(id) {
         dataType:'json',
         success: function (data){
 
-            console.log(data.getGestante)
+            console.log(data)
 
             function clearClass(id) {
                 if ($(id).hasClass('btn-danger')) {
@@ -103,31 +126,57 @@ function getGestante(id) {
             clearClass('#hiv_solicitacao');
             clearClass('#hiv_avaliacao');
             clearClass('#hiv_rapido');
+            clearClass('#ultimo_odonto');
 
-            var vdrl_avaliacao = (data.getGestante[0].vdrl_avaliacao == null) ? ['btn-danger', 'Não Avaliado'] : ['btn-success', 'Avaliado'];
-            var vdrl_rapido = (data.getGestante[0].vdrl_rapido == null) ? ['btn-danger', 'Sem Teste Rápido'] : ['btn-success', 'Teste Rápido'];
-            var vdrl_solicitacao = (data.getGestante[0].vdrl_solicitacao == null) ? ['btn-danger', 'Não Solicitado'] : ['btn-success', 'Solicitado'];
+            function trataDados(params, returnN, returnY) {
+                if (params == null) {
+                    return ['btn-danger', returnN]
+                } else {
+                    return ['btn-success', returnY]
+                }
+            }
 
-            var hiv_avaliacao = (data.getGestante[0].hiv_avaliacao == null) ? ['btn-danger', 'Não Avaliado'] : ['btn-success', 'Avaliado'];
-            var hiv_rapido = (data.getGestante[0].hiv_rapido == null) ? ['btn-danger', 'Sem Teste Rápido'] : ['btn-success', 'Teste Rápido'];
-            var hiv_solicitacao = (data.getGestante[0].hiv_solicitacao == null) ? ['btn-danger', 'Não Solicitado'] : ['btn-success', 'Solicitado'];
+            var vdrl_avaliacao = trataDados(data[0].vdrl_avaliacao, 'Não Avaliado', 'Avaliado')
+            var vdrl_rapido = trataDados(data[0].vdrl_rapido, 'Sem Teste Rápido', 'Teste Rápido')
+            var vdrl_solicitacao = trataDados(data[0].vdrl_solicitacao, 'Não Solicitado', 'Solicitado')
 
-            var total_consulta = (data.getGestante[0].total_consulta == null) ? '0' : data.getGestante[0].total_consulta;
+            var hiv_avaliacao = trataDados(data[0].hiv_avaliacao, 'Não Avaliado', 'Avaliado')
+            var hiv_rapido = trataDados(data[0].hiv_rapido, 'Sem Teste Rápido', 'Teste Rápido')
+            var hiv_solicitacao = trataDados(data[0].hiv_solicitacao, 'Não Solicitado', 'Solicitado')
 
-            var dtpa = (data.getGestante[0].dtpa == null) ? 'Não realizado' : data.getGestante[0].dtpa;
+            function trataData(params) {
+                if (params == null) {
+                    return 'Não realizado'
+                } else {
+                   return params.substring(0, 10).split('-').reverse().join('/')
+                }
+            }
 
-            var consulta_ult = (data.getGestante[0].consulta_ult != null) ? data.getGestante[0].consulta_ult.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
-            var consulta_1 = (data.getGestante[0].consulta_1 != null) ? data.getGestante[0].consulta_1.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
+            var consulta_ult = trataData(data[0].consulta_ult)
+            var consulta_1 = trataData(data[0].consulta_1)
+            var ultimo_odonto = trataData(data[0].ultimo_odonto)
+            var dtpa = trataData(data[0].dtpa)
+
+            if (ultimo_odonto == 'Não realizado') {
+                ultimo_odonto = ['btn-danger', 'Não realizado']
+            } else {
+                ultimo_odonto = ['btn-primary', ultimo_odonto]
+            }
+
+            var total_consulta = (data[0].total_consulta == null) ? '0' : data[0].total_consulta;
+
+            // var consulta_ult = (data[0].consulta_ult != null) ? data[0].consulta_ult.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
+            // var consulta_1 = (data[0].consulta_1 != null) ? data[0].consulta_1.substring(0, 10).split('-').reverse().join('/') : 'Sem consulta';
             
-            var ultimo_odonto = (data.getGestante[0].ultimo_odonto != null) ? ['btn-primary', data.getGestante[0].ultimo_odonto.substring(0, 10).split('-').reverse().join('/') ] : ['btn-danger', 'Sem Consulta']
+            // var ultimo_odonto = (data[0].ultimo_odonto != null) ? ['btn-primary', data[0].ultimo_odonto.substring(0, 10).split('-').reverse().join('/') ] : ['btn-danger', 'Sem Consulta']
             
-            $('#cardHeader').html('Nome: ' + data.getGestante[0].no_cidadao + '<span> | Contato: ' +  data.getGestante[0].celular + '</span><span> | Micro Área: ' +  data.getGestante[0].micro + '</span>');
+            $('#cardHeader').html('Nome: ' + data[0].no_cidadao + '<span> | Contato: ' +  data[0].celular + '</span><span> | Micro Área: ' +  data[0].micro + '</span>');
             $('#consulta_ult').html(consulta_ult)
             $('#consulta_1').html(consulta_1)
             $('#total_consulta').html(total_consulta)
             $('#dtpa').html(dtpa)
             $('#ultimo_odonto').addClass(ultimo_odonto[0]).html(ultimo_odonto[1])
-            $('#semanas').html(data.getGestante[0].semanas + 'ª Semana')
+            $('#semanas').html(data[0].semanas + 'ª Semana')
             $('#vdrl_avaliacao').addClass(vdrl_avaliacao[0]).html(vdrl_avaliacao[1])
             $('#vdrl_rapido').addClass(vdrl_rapido[0]).html(vdrl_rapido[1])
             $('#vdrl_solicitacao').addClass(vdrl_solicitacao[0]).html(vdrl_solicitacao[1])
@@ -141,8 +190,8 @@ function getGestante(id) {
             let totalAtual = '';
             let totalDum = '';
 
-            if (data.getGestante[0].dum != null) {
-                let dum = data.getGestante[0].dum.split('-');
+            if (data[0].dum != null) {
+                let dum = data[0].dum.split('-');
                 let anoDum = dum[0] * 365;
                 let mesDum = dum[1] * 30;
                 let diaDum = dum[2] * 1;

@@ -31,6 +31,9 @@
         }
     </style>
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body class="">
 	<!-- [ Pre-loader ] start -->
@@ -122,9 +125,9 @@
                             <div class="col-sm-3">
                                 <div class="input-group ">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" for="name="microarea"">Micro Área</label>
+                                        <label class="input-group-text" for="microarea">Micro Área</label>
                                     </div>
-                                    <select name="microarea" class="custom-select" id="name="microarea"">
+                                    <select name="microarea" class="custom-select" id="microarea">
                                         <option selected>Todas</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -154,32 +157,7 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody id="resultado">
-                                <!-- <tr>
-                                    <td>1</td>
-                                    <td><a href="#modalGestante" data-toggle="modal">ADRIANA SILVA DE SOUSA</a></td>
-                                    <td>01934249246</td>
-                                    <td><span class="badge badge-light-success">Success</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>ALANA BRAZ MARTINS</td>
-                                    <td>70171714202</td>
-                                    <td><span class="badge badge-light-danger">Success</span></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>ANDREIA RIBEIRO DE AMORIM</td>
-                                    <td>898004135317474</td>
-                                    <td><span class="badge badge-light-danger">Success</span></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>BARBARA FERREIRA DE SOUZA</td>
-                                    <td>07152839280</td>
-                                    <td><span class="badge badge-light-success">Success</span></td>
-                                </tr> -->
-                            </tbody>
+                            <tbody id="resultado"></tbody>
                         </table>
                     </div>
                     
@@ -303,7 +281,7 @@
                     <!-- Modal  tipo #01 end -->
 
                     <!-- Modal tipo #02 start-->
-                    <div class="modal fade bd-table-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel02" aria-hidden="true" id="modalGestante02">
+                    <!-- <div class="modal fade bd-table-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel02" aria-hidden="true" id="modalGestante02">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -348,7 +326,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Modal  tipo #02 end -->
                 </div>
             </div>
@@ -358,26 +336,17 @@
         <!-- [ Main Content ] end -->
 </div>
 </div>
-@include('includes.footer')
 
 <!-- datatable js -->
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js"></script>
+<!-- <script src="assets/js/plugins/apexcharts.min.js"></script> -->
+<script src="assets/js/ripple.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
 
-<script>
-$(document).ready(function () {
-    $('#table').DataTable({
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json',
-            "sLengthMenu": ""
-        },
-        'sLengthMenu': false,
-        'sSearch': false,
-        'bFilter': false
-    });
-});
-</script>
 <script src="assets/js/prenatal.js"></script>
 
 </body>
